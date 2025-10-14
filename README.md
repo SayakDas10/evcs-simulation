@@ -25,10 +25,15 @@ powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
 After installation, you may need to restart terminal for `uv` command to be available.
 
-3. **Install Dependencies**
+3. **Create Virtual Environment**
+````bash
+uv venv
+``````
+
+4. **Install Dependencies**
 
 ````bash
-uv pip sync
+uv pip sync pyproject.toml
 ````
 ## Running the Project
 
