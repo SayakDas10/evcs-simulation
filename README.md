@@ -13,11 +13,12 @@ cd evcs-simulation
 2. **Install uv**
 
 This project is managed using `uv`. To install `uv`,
+
 **macOs and Linux:**
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh 
 ```
-**Windown**
+**Windows**
 
 ```PowerShell
 powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
