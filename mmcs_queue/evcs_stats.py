@@ -3,7 +3,7 @@ import json
 import os
 from mmck_sim import run_simulation_run, calculate_mmck_performance
 
-SAVE_DIR = "/home/saksham/samsad/MLSpace/MTech Sem3/EV-charging-impact/ev_phase2_results"
+SAVE_DIR = "/home/saksham/samsad/MLSpace/MTech Sem3/MnS_Project/evcs-simulation/evcs_phase2_results"
 
 def load_json(json_path):
     with open(json_path, "r") as f:
@@ -49,7 +49,7 @@ def generate_stats(evcs_config):
     return stats_dict
 
 if __name__ == "__main__":
-    evcs_config_json_path = "/home/saksham/samsad/MLSpace/MTech Sem3/EV-charging-impact/ev_phase_2_results/evcs_config.json"
+    evcs_config_json_path = "/home/saksham/samsad/MLSpace/MTech Sem3/MnS_Project/evcs-simulation/evcs_phase2_results/evcs_config.json"
     evcs_config_dict = load_json(evcs_config_json_path)
     evcs_stats_dict = generate_stats(evcs_config_dict)
     save_json(stats_dict=evcs_stats_dict, 
