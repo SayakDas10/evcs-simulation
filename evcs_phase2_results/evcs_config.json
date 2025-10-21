@@ -1,0 +1,162 @@
+{
+    "EVCS_00": {
+        "zone_type": "sparse",
+        "charger_type": "low",
+        "lambda": 0.178,
+        "mu": 0.189,
+        "c": 2,
+        "K": 15
+    },
+    "EVCS_01": {
+        "zone_type": "moderate",
+        "charger_type": "low",
+        "lambda": 0.336,
+        "mu": 0.103,
+        "c": 5,
+        "K": 30
+    },
+    "EVCS_02": {
+        "zone_type": "moderate",
+        "charger_type": "medium",
+        "lambda": 0.286,
+        "mu": 0.065,
+        "c": 7,
+        "K": 30
+    },
+    "EVCS_03": {
+        "zone_type": "dense",
+        "charger_type": "medium",
+        "lambda": 0.626,
+        "mu": 0.075,
+        "c": 9,
+        "K": 35
+    },
+    "EVCS_04": {
+        "zone_type": "dense",
+        "charger_type": "high",
+        "lambda": 0.609,
+        "mu": 0.098,
+        "c": 8,
+        "K": 35
+    },
+    "EVCS_05": {
+        "zone_type": "moderate",
+        "charger_type": "medium",
+        "lambda": 0.427,
+        "mu": 0.148,
+        "c": 5,
+        "K": 30
+    },
+    "EVCS_06": {
+        "zone_type": "sparse",
+        "charger_type": "low",
+        "lambda": 0.09,
+        "mu": 0.055,
+        "c": 4,
+        "K": 15
+    },
+    "EVCS_07": {
+        "zone_type": "dense",
+        "charger_type": "high",
+        "lambda": 0.666,
+        "mu": 0.071,
+        "c": 10,
+        "K": 40
+    },
+    "EVCS_08": {
+        "zone_type": "dense",
+        "charger_type": "high",
+        "lambda": 0.843,
+        "mu": 0.138,
+        "c": 8,
+        "K": 35
+    },
+    "EVCS_09": {
+        "zone_type": "sparse",
+        "charger_type": "low",
+        "lambda": 0.19,
+        "mu": 0.14,
+        "c": 3,
+        "K": 15
+    },
+    "EVCS_10": {
+        "zone_type": "moderate",
+        "charger_type": "medium",
+        "lambda": 0.304,
+        "mu": 0.069,
+        "c": 6,
+        "K": 20
+    },
+    "EVCS_11": {
+        "zone_type": "sparse",
+        "charger_type": "low",
+        "lambda": 0.069,
+        "mu": 0.084,
+        "c": 2,
+        "K": 15
+    },
+    "EVCS_12": {
+        "zone_type": "dense",
+        "charger_type": "high",
+        "lambda": 0.854,
+        "mu": 0.101,
+        "c": 10,
+        "K": 40
+    },
+    "EVCS_13": {
+        "zone_type": "dense",
+        "charger_type": "high",
+        "lambda": 0.842,
+        "mu": 0.101,
+        "c": 10,
+        "K": 40
+    },
+    "EVCS_14": {
+        "zone_type": "dense",
+        "charger_type": "medium",
+        "lambda": 0.761,
+        "mu": 0.092,
+        "c": 9,
+        "K": 35
+    },
+    "EVCS_15": {
+        "zone_type": "moderate",
+        "charger_type": "low",
+        "lambda": 0.443,
+        "mu": 0.09,
+        "c": 7,
+        "K": 30
+    },
+    "EVCS_16": {
+        "zone_type": "moderate",
+        "charger_type": "medium",
+        "lambda": 0.56,
+        "mu": 0.162,
+        "c": 6,
+        "K": 30
+    },
+    "EVCS_17": {
+        "zone_type": "dense",
+        "charger_type": "high",
+        "lambda": 0.658,
+        "mu": 0.09,
+        "c": 8,
+        "K": 35
+    },
+    "EVCS_18": {
+        "zone_type": "dense",
+        "charger_type": "high",
+        "lambda": 0.798,
+        "mu": 0.106,
+        "c": 9,
+        "K": 35
+    },
+    "EVCS_19": {
+        "zone_type": "dense",
+        "charger_type": "medium",
+        "lambda": 0.857,
+        "mu": 0.117,
+        "c": 8,
+        "K": 40
+    }
+}

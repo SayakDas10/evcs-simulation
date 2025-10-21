@@ -1,2 +1,5 @@
 # Ignore output folder
-evcs_phase2_results
+#evcs_phase2_results
+mmcs_queue/generate_evcs_config.py
+*.xlsx
+*.png
