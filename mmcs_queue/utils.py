@@ -69,3 +69,14 @@ def excel_writer(results, configs,  excel_path):
             df.to_excel(writer, sheet_name=sheet_name, index=False)
 
     print(f"All results saved to {excel_path}")
+
+
+def compute_electrical_loading(service_time, charger_type = str):
+    if charger_type == "low":
+        P = np.random.uniform(60, 100)
+    elif charger_type == "medium":
+        P = np.random.uniform(125, 175)
+    else:
+        P = np.random.uniform(200, 250)
+    
+    return P * service_time
