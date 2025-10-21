@@ -1,5 +1,7 @@
 import numpy as np
 import math
+from collections import Counter
+from utils import compute_electrical_loading
 
 # --- THEORETICAL FORMULA FUNCTIONS for M/M/c/K ---
 
@@ -47,7 +49,7 @@ def calculate_mmck_performance(lam, mu, c, K):
 
 # --- SIMULATION AND PLOTTING ---
 
-def run_simulation_run(lam, mu, c, K, q_size, sim_time):
+def run_simulation_run(lam, mu, c, K, q_size, sim_time = 100000):
     """Performs a single event-driven simulation for an M/M/c/K system."""
     current_time = 0.0
     servers = [0.0] * c
@@ -114,3 +116,117 @@ def run_simulation_run(lam, mu, c, K, q_size, sim_time):
     L_emp = area_system_length / current_time if current_time > 0 else 0
     
     return Pb_emp, L_emp, W_emp, Lq_emp, Wq_emp
+
+
+
+def run_simulation_run_new(lam, mu, c, K, q_size, sim_time = 100000, get_stats_dict = False):
+    """
+    Event-driven simulation for M/M/c/K queue.
+    Returns empirical performance metrics + queue length evolution + distribution + utilization.
+    """
+    current_time = 0.0
+    servers = [0.0] * c
+    num_in_system = 0
+    
+    total_wait_time, total_system_time = 0.0, 0.0
+    total_arrivals, total_dropped, total_entered = 0, 0, 0
+    area_queue_length, area_system_length = 0.0, 0.0
+    last_event_time = 0.0
+
+    arrival_times = []
+    service_times_record = []
+    t = 0
+    while t < sim_time:
+        t += np.random.exponential(scale=1/lam)
+        arrival_times.append(t)
+    
+    queue = []
+    queue_lengths = []        
+    queue_length_counts = Counter()  
+
+    busy_time_per_server = [0.0] * c  # To calculate utilization
+
+    while arrival_times or any(s > current_time for s in servers):
+        next_departure_time = min((s for s in servers if s > current_time), default=float('inf'))
+        next_arrival_time = arrival_times[0] if arrival_times else float('inf')
+        current_time = min(next_arrival_time, next_departure_time)
+        
+        time_since_last_event = current_time - last_event_time
+        area_queue_length += len(queue) * time_since_last_event
+        area_system_length += num_in_system * time_since_last_event
+        last_event_time = current_time
+
+        # Record queue length over time
+        queue_lengths.append((current_time, len(queue)))
+        queue_length_counts[len(queue)] += 1
+
+        if current_time == next_arrival_time:  # ARRIVAL
+            arrival_time = arrival_times.pop(0)
+            total_arrivals += 1
+
+            if num_in_system < K:
+                num_in_system += 1
+                total_entered += 1
+
+                free_server_idx = next((i for i, s_time in enumerate(servers) if s_time <= current_time), -1)
+                if free_server_idx != -1:
+                    service_time = np.random.exponential(scale=1/mu)
+                    service_times_record.append(service_time)
+                    servers[free_server_idx] = current_time + service_time
+                    busy_time_per_server[free_server_idx] += service_time
+                    total_system_time += service_time
+                else:
+                    queue.append(arrival_time)
+            else:
+                total_dropped += 1
+
+        else:  # DEPARTURE
+            num_in_system -= 1
+            if queue:
+                arrival_time_from_queue = queue.pop(0)
+                service_time = np.random.exponential(scale=1/mu)
+                service_times_record.append(service_time)
+                departing_server_idx = servers.index(next_departure_time)
+                servers[departing_server_idx] = current_time + service_time
+                busy_time_per_server[departing_server_idx] += service_time
+                
+                wait_time = current_time - arrival_time_from_queue
+                total_wait_time += wait_time
+                total_system_time += wait_time + service_time
+            else:
+                departing_server_idx = servers.index(next_departure_time)
+                servers[departing_server_idx] = 0.0
+
+        if not arrival_times and num_in_system == 0:
+            break
+
+    # === Empirical metrics ===
+    Pb_emp = total_dropped / total_arrivals if total_arrivals > 0 else 0
+    Wq_emp = total_wait_time / total_entered if total_entered > 0 else 0
+    W_emp = total_system_time / total_entered if total_entered > 0 else 0
+    Lq_emp = area_queue_length / current_time if current_time > 0 else 0
+    L_emp = area_system_length / current_time if current_time > 0 else 0
+
+    # === Queue length distribution (normalized) ===
+    total_obs = sum(queue_length_counts.values())
+    q_len_distribution = {k: v / total_obs for k, v in sorted(queue_length_counts.items())}
+
+    # === Server utilization ===
+    utilization = [busy_time / current_time for busy_time in busy_time_per_server]
+    avg_utilization = np.mean(utilization)
+
+    stats_dict = {
+        "Pb_emp": Pb_emp,
+        "L_emp": L_emp,
+        "W_emp": W_emp,
+        "Lq_emp": Lq_emp,
+        "Wq_emp": Wq_emp,
+        "queue_length_time": queue_lengths,
+        "queue_length_distribution": q_len_distribution,
+        "server_utilization": utilization,
+        "avg_utilization": avg_utilization,
+        "svc_times": service_times_record
+    }
+
+    return stats_dict
+
