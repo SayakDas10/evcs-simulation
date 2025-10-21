@@ -9,8 +9,8 @@ import custom_weights
 import voronoi
 
 def main():
-    place = "Bangalore, India"
-    graph_filepath = "bangalore.graphml"
+    place = "Kolkata, India"
+    graph_filepath = "kolkata.graphml"
     
     if os.path.exists(graph_filepath):
         print(f"Loading graph from file: {graph_filepath}")
@@ -23,10 +23,10 @@ def main():
 
     nodes, edges = ox.graph_to_gdfs(G)
 
-    G, weight_attr = custom_weights.apply_custom_weights(G)
-
-    seed_nodes = np.random.choice(nodes.index, size=100, replace=False)
+    seed_nodes = np.random.choice(nodes.index, size=20, replace=False)
     print(f"Selected {len(seed_nodes)} seed nodes")
+
+    G, weight_attr = custom_weights.apply_custom_weights(G, seed_nodes)
 
     projected_crs = nodes.estimate_utm_crs()
     local_epsg = projected_crs.to_epsg()

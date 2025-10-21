@@ -1,21 +1,26 @@
+import numpy as np
 import networkx as nx
+import json
 
-def _calculate_weight(u, v, data):
+def _calculate_weight(u, v, data, seeds):
     """
     Calculates a custom weight for a single edge.
     This is our cost function too.
     """
     length = data.get('length', 0)
-    highway_type = data.get('highway', 'unknown')
 
-    if highway_type == 'residential':
-        return length * 2.0
-    elif highway_type in ['motorway', 'trunk', 'primary']:
-        return length * 0.8
+    with open("evcs_phase2_results/evcs_config.json") as f:
+        evcs_stat = json.load(f)
+
+    if v in seeds:
+        evcs_num = np.where(seeds==v)[0][0]
+        stats = evcs_stat[f"EVCS_{evcs_num}" if evcs_num > 9 else f"EVCS_0{evcs_num}"]
+        mu = stats["mu"]
+        return length + length * (1/mu)
     else:
         return length
 
-def apply_custom_weights(graph):
+def apply_custom_weights(graph, seeds):
     """
     Applies custom weights to every edge in the graph.
 
@@ -29,7 +34,7 @@ def apply_custom_weights(graph):
     
     # Create a dictionary of custom weights for all edges
     custom_weights = {
-        (u, v, k): _calculate_weight(u, v, d)
+        (u, v, k): _calculate_weight(u, v, d, seeds)
         for u, v, k, d in graph.edges(keys=True, data=True)
     }
 
