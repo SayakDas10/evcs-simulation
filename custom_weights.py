@@ -18,10 +18,10 @@ def _calculate_weight(u, v, data, seed_stats_lookup, alphas):
 
     if u in seed_stats_lookup:
         stats = seed_stats_lookup[u]
-        L_emp = stats.get("L_emp", 0)
-        Lq_emp = stats.get("Lq_emp", 0)
-        W_emp = stats.get("W_emp", 0)
-        Wq_emp = stats.get("Wq_emp", 0)
+        L_emp = stats.get("L_emp_norm", 0)
+        Lq_emp = stats.get("Lq_emp_norm", 0)
+        W_emp = stats.get("W_emp_norm", 0)
+        Wq_emp = stats.get("Wq_emp_norm", 0)
         
         cost += alphas[1] * Lq_emp + alphas[2] * L_emp + alphas[3] * Wq_emp + alphas[4] * W_emp
     
@@ -53,7 +53,7 @@ def apply_custom_weights(graph, seeds):
     alphas = [0.2, 0.2, 0.2, 0.2, 0.2]
     
     try:
-        with open("evcs_phase2_results/evcs_stats.json") as f:
+        with open("evcs_phase2_results/evcs_stats_normalized.json") as f:
             evcs_stat = json.load(f)
     except FileNotFoundError:
         print("Error: evcs_phase2_results/evcs_stats.json not found.")
