@@ -1,162 +1,402 @@
 {
     "EVCS_00": {
-        "zone_type": "sparse",
-        "charger_type": "low",
-        "lambda": 0.178,
-        "mu": 0.189,
-        "c": 2,
-        "K": 15
+        "zone_type": "dense",
+        "charger_type": "LEVEL-2 (AC)",
+        "lambda": 0.792,
+        "mu": 0.131,
+        "c": 8,
+        "K": 40
     },
     "EVCS_01": {
-        "zone_type": "moderate",
-        "charger_type": "low",
-        "lambda": 0.336,
+        "zone_type": "sparse",
+        "charger_type": "LEVEL-1 (DC)",
+        "lambda": 0.099,
         "mu": 0.103,
-        "c": 5,
-        "K": 30
+        "c": 2,
+        "K": 10
     },
     "EVCS_02": {
         "zone_type": "moderate",
-        "charger_type": "medium",
-        "lambda": 0.286,
-        "mu": 0.065,
+        "charger_type": "LEVEL-3 (AC)",
+        "lambda": 0.487,
+        "mu": 0.114,
         "c": 7,
-        "K": 30
+        "K": 20
     },
     "EVCS_03": {
-        "zone_type": "dense",
-        "charger_type": "medium",
-        "lambda": 0.626,
-        "mu": 0.075,
-        "c": 9,
-        "K": 35
+        "zone_type": "moderate",
+        "charger_type": "LEVEL-2 (AC)",
+        "lambda": 0.457,
+        "mu": 0.154,
+        "c": 5,
+        "K": 20
     },
     "EVCS_04": {
         "zone_type": "dense",
-        "charger_type": "high",
-        "lambda": 0.609,
-        "mu": 0.098,
+        "charger_type": "LEVEL-3 (DC)",
+        "lambda": 0.628,
+        "mu": 0.09,
         "c": 8,
         "K": 35
     },
     "EVCS_05": {
-        "zone_type": "moderate",
-        "charger_type": "medium",
-        "lambda": 0.427,
-        "mu": 0.148,
-        "c": 5,
-        "K": 30
-    },
-    "EVCS_06": {
-        "zone_type": "sparse",
-        "charger_type": "low",
-        "lambda": 0.09,
-        "mu": 0.055,
-        "c": 4,
-        "K": 15
-    },
-    "EVCS_07": {
         "zone_type": "dense",
-        "charger_type": "high",
-        "lambda": 0.666,
-        "mu": 0.071,
+        "charger_type": "LEVEL-2 (AC)",
+        "lambda": 0.768,
+        "mu": 0.092,
         "c": 10,
         "K": 40
     },
+    "EVCS_06": {
+        "zone_type": "moderate",
+        "charger_type": "LEVEL-2 (AC)",
+        "lambda": 0.327,
+        "mu": 0.069,
+        "c": 7,
+        "K": 25
+    },
+    "EVCS_07": {
+        "zone_type": "moderate",
+        "charger_type": "LEVEL-1 (DC)",
+        "lambda": 0.533,
+        "mu": 0.202,
+        "c": 5,
+        "K": 20
+    },
     "EVCS_08": {
-        "zone_type": "dense",
-        "charger_type": "high",
-        "lambda": 0.843,
-        "mu": 0.138,
-        "c": 8,
-        "K": 35
+        "zone_type": "moderate",
+        "charger_type": "LEVEL-3 (DC)",
+        "lambda": 0.494,
+        "mu": 0.159,
+        "c": 6,
+        "K": 25
     },
     "EVCS_09": {
-        "zone_type": "sparse",
-        "charger_type": "low",
-        "lambda": 0.19,
-        "mu": 0.14,
-        "c": 3,
-        "K": 15
+        "zone_type": "dense",
+        "charger_type": "LEVEL-3 (AC)",
+        "lambda": 0.647,
+        "mu": 0.083,
+        "c": 9,
+        "K": 35
     },
     "EVCS_10": {
         "zone_type": "moderate",
-        "charger_type": "medium",
-        "lambda": 0.304,
-        "mu": 0.069,
-        "c": 6,
-        "K": 20
+        "charger_type": "LEVEL-3 (AC)",
+        "lambda": 0.282,
+        "mu": 0.088,
+        "c": 5,
+        "K": 25
     },
     "EVCS_11": {
         "zone_type": "sparse",
-        "charger_type": "low",
-        "lambda": 0.069,
-        "mu": 0.084,
-        "c": 2,
+        "charger_type": "LEVEL-1 (DC)",
+        "lambda": 0.219,
+        "mu": 0.13,
+        "c": 4,
         "K": 15
     },
     "EVCS_12": {
         "zone_type": "dense",
-        "charger_type": "high",
-        "lambda": 0.854,
-        "mu": 0.101,
+        "charger_type": "LEVEL-3 (AC)",
+        "lambda": 0.842,
+        "mu": 0.109,
         "c": 10,
         "K": 40
     },
     "EVCS_13": {
-        "zone_type": "dense",
-        "charger_type": "high",
-        "lambda": 0.842,
-        "mu": 0.101,
-        "c": 10,
-        "K": 40
+        "zone_type": "moderate",
+        "charger_type": "LEVEL-3 (AC)",
+        "lambda": 0.438,
+        "mu": 0.122,
+        "c": 6,
+        "K": 20
     },
     "EVCS_14": {
-        "zone_type": "dense",
-        "charger_type": "medium",
-        "lambda": 0.761,
-        "mu": 0.092,
-        "c": 9,
-        "K": 35
+        "zone_type": "sparse",
+        "charger_type": "LEVEL-1 (DC)",
+        "lambda": 0.16,
+        "mu": 0.091,
+        "c": 4,
+        "K": 15
     },
     "EVCS_15": {
-        "zone_type": "moderate",
-        "charger_type": "low",
-        "lambda": 0.443,
-        "mu": 0.09,
-        "c": 7,
-        "K": 30
+        "zone_type": "sparse",
+        "charger_type": "LEVEL-1 (AC)",
+        "lambda": 0.165,
+        "mu": 0.098,
+        "c": 4,
+        "K": 10
     },
     "EVCS_16": {
         "zone_type": "moderate",
-        "charger_type": "medium",
-        "lambda": 0.56,
-        "mu": 0.162,
-        "c": 6,
-        "K": 30
+        "charger_type": "LEVEL-3 (AC)",
+        "lambda": 0.266,
+        "mu": 0.089,
+        "c": 5,
+        "K": 25
     },
     "EVCS_17": {
-        "zone_type": "dense",
-        "charger_type": "high",
-        "lambda": 0.658,
-        "mu": 0.09,
-        "c": 8,
-        "K": 35
+        "zone_type": "sparse",
+        "charger_type": "LEVEL-2 (AC)",
+        "lambda": 0.247,
+        "mu": 0.303,
+        "c": 2,
+        "K": 10
     },
     "EVCS_18": {
         "zone_type": "dense",
-        "charger_type": "high",
-        "lambda": 0.798,
-        "mu": 0.106,
+        "charger_type": "LEVEL-2 (AC)",
+        "lambda": 0.714,
+        "mu": 0.088,
         "c": 9,
-        "K": 35
+        "K": 40
     },
     "EVCS_19": {
+        "zone_type": "moderate",
+        "charger_type": "LEVEL-3 (AC)",
+        "lambda": 0.307,
+        "mu": 0.071,
+        "c": 6,
+        "K": 20
+    },
+    "EVCS_20": {
+        "zone_type": "sparse",
+        "charger_type": "LEVEL-1 (DC)",
+        "lambda": 0.184,
+        "mu": 0.103,
+        "c": 4,
+        "K": 10
+    },
+    "EVCS_21": {
+        "zone_type": "moderate",
+        "charger_type": "LEVEL-1 (AC)",
+        "lambda": 0.463,
+        "mu": 0.144,
+        "c": 5,
+        "K": 30
+    },
+    "EVCS_22": {
         "zone_type": "dense",
-        "charger_type": "medium",
-        "lambda": 0.857,
-        "mu": 0.117,
+        "charger_type": "LEVEL-1 (AC)",
+        "lambda": 0.819,
+        "mu": 0.122,
         "c": 8,
+        "K": 40
+    },
+    "EVCS_23": {
+        "zone_type": "moderate",
+        "charger_type": "LEVEL-1 (DC)",
+        "lambda": 0.383,
+        "mu": 0.096,
+        "c": 7,
+        "K": 30
+    },
+    "EVCS_24": {
+        "zone_type": "dense",
+        "charger_type": "LEVEL-3 (DC)",
+        "lambda": 0.767,
+        "mu": 0.096,
+        "c": 10,
+        "K": 40
+    },
+    "EVCS_25": {
+        "zone_type": "sparse",
+        "charger_type": "LEVEL-2 (AC)",
+        "lambda": 0.219,
+        "mu": 0.245,
+        "c": 2,
+        "K": 10
+    },
+    "EVCS_26": {
+        "zone_type": "moderate",
+        "charger_type": "LEVEL-1 (DC)",
+        "lambda": 0.538,
+        "mu": 0.121,
+        "c": 6,
+        "K": 25
+    },
+    "EVCS_27": {
+        "zone_type": "sparse",
+        "charger_type": "LEVEL-1 (DC)",
+        "lambda": 0.104,
+        "mu": 0.114,
+        "c": 2,
+        "K": 15
+    },
+    "EVCS_28": {
+        "zone_type": "moderate",
+        "charger_type": "LEVEL-1 (AC)",
+        "lambda": 0.324,
+        "mu": 0.078,
+        "c": 6,
+        "K": 25
+    },
+    "EVCS_29": {
+        "zone_type": "moderate",
+        "charger_type": "LEVEL-1 (DC)",
+        "lambda": 0.56,
+        "mu": 0.12,
+        "c": 7,
+        "K": 25
+    },
+    "EVCS_30": {
+        "zone_type": "moderate",
+        "charger_type": "LEVEL-1 (AC)",
+        "lambda": 0.3,
+        "mu": 0.08,
+        "c": 5,
+        "K": 20
+    },
+    "EVCS_31": {
+        "zone_type": "sparse",
+        "charger_type": "LEVEL-1 (DC)",
+        "lambda": 0.199,
+        "mu": 0.124,
+        "c": 4,
+        "K": 15
+    },
+    "EVCS_32": {
+        "zone_type": "dense",
+        "charger_type": "LEVEL-2 (AC)",
+        "lambda": 0.824,
+        "mu": 0.101,
+        "c": 9,
+        "K": 40
+    },
+    "EVCS_33": {
+        "zone_type": "moderate",
+        "charger_type": "LEVEL-3 (AC)",
+        "lambda": 0.377,
+        "mu": 0.125,
+        "c": 5,
+        "K": 30
+    },
+    "EVCS_34": {
+        "zone_type": "dense",
+        "charger_type": "LEVEL-2 (AC)",
+        "lambda": 0.748,
+        "mu": 0.124,
+        "c": 8,
+        "K": 35
+    },
+    "EVCS_35": {
+        "zone_type": "dense",
+        "charger_type": "LEVEL-3 (DC)",
+        "lambda": 0.646,
+        "mu": 0.093,
+        "c": 8,
+        "K": 40
+    },
+    "EVCS_36": {
+        "zone_type": "dense",
+        "charger_type": "LEVEL-2 (AC)",
+        "lambda": 0.779,
+        "mu": 0.097,
+        "c": 9,
+        "K": 40
+    },
+    "EVCS_37": {
+        "zone_type": "moderate",
+        "charger_type": "LEVEL-1 (AC)",
+        "lambda": 0.459,
+        "mu": 0.143,
+        "c": 6,
+        "K": 30
+    },
+    "EVCS_38": {
+        "zone_type": "dense",
+        "charger_type": "LEVEL-1 (AC)",
+        "lambda": 0.675,
+        "mu": 0.078,
+        "c": 10,
+        "K": 35
+    },
+    "EVCS_39": {
+        "zone_type": "moderate",
+        "charger_type": "LEVEL-3 (AC)",
+        "lambda": 0.488,
+        "mu": 0.186,
+        "c": 5,
+        "K": 30
+    },
+    "EVCS_40": {
+        "zone_type": "moderate",
+        "charger_type": "LEVEL-1 (DC)",
+        "lambda": 0.56,
+        "mu": 0.182,
+        "c": 6,
+        "K": 30
+    },
+    "EVCS_41": {
+        "zone_type": "moderate",
+        "charger_type": "LEVEL-3 (AC)",
+        "lambda": 0.369,
+        "mu": 0.083,
+        "c": 6,
+        "K": 25
+    },
+    "EVCS_42": {
+        "zone_type": "dense",
+        "charger_type": "LEVEL-2 (AC)",
+        "lambda": 0.647,
+        "mu": 0.099,
+        "c": 8,
+        "K": 40
+    },
+    "EVCS_43": {
+        "zone_type": "moderate",
+        "charger_type": "LEVEL-3 (AC)",
+        "lambda": 0.59,
+        "mu": 0.2,
+        "c": 5,
+        "K": 30
+    },
+    "EVCS_44": {
+        "zone_type": "dense",
+        "charger_type": "LEVEL-3 (DC)",
+        "lambda": 0.874,
+        "mu": 0.099,
+        "c": 10,
+        "K": 40
+    },
+    "EVCS_45": {
+        "zone_type": "moderate",
+        "charger_type": "LEVEL-2 (AC)",
+        "lambda": 0.545,
+        "mu": 0.11,
+        "c": 7,
+        "K": 30
+    },
+    "EVCS_46": {
+        "zone_type": "sparse",
+        "charger_type": "LEVEL-1 (DC)",
+        "lambda": 0.09,
+        "mu": 0.075,
+        "c": 3,
+        "K": 10
+    },
+    "EVCS_47": {
+        "zone_type": "moderate",
+        "charger_type": "LEVEL-3 (AC)",
+        "lambda": 0.439,
+        "mu": 0.12,
+        "c": 7,
+        "K": 20
+    },
+    "EVCS_48": {
+        "zone_type": "sparse",
+        "charger_type": "LEVEL-3 (DC)",
+        "lambda": 0.17,
+        "mu": 0.131,
+        "c": 3,
+        "K": 10
+    },
+    "EVCS_49": {
+        "zone_type": "dense",
+        "charger_type": "LEVEL-1 (DC)",
+        "lambda": 0.634,
+        "mu": 0.082,
+        "c": 9,
         "K": 40
     }
 }

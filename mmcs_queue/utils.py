@@ -71,12 +71,34 @@ def excel_writer(results, configs,  excel_path):
     print(f"All results saved to {excel_path}")
 
 
-def compute_electrical_loading(service_time, charger_type = str):
-    if charger_type == "low":
-        P = np.random.uniform(60, 100)
-    elif charger_type == "medium":
-        P = np.random.uniform(125, 175)
-    else:
-        P = np.random.uniform(200, 250)
-    
+def compute_electrical_loading(service_time, charger_type: str):
+    """
+    Compute the electrical loading (Energy in kWh equivalent) 
+    based on service_time (in hours) and charger_type.
+
+    Charger types and nominal power ratings (kW):
+        - Level1_AC: 3.3 kW
+        - Level1_DC: 15 kW
+        - Level2_AC: 22 kW
+        - Level3_AC: 22 kW
+        - Level3_DC: 400 kW
+    """
+
+    charger_power = {
+        "LEVEL-1 (AC)": 9.9,
+        "LEVEL-1 (DC)": 15,
+        "LEVEL-2 (AC)": 22,
+        "LEVEL-3 (AC)": 25,
+        "LEVEL-3 (DC)": 240
+    }
+
+    if charger_type not in charger_power:
+        raise ValueError(f"Invalid charger type '{charger_type}'. "
+                         f"Valid options: {list(charger_power.keys())}")
+
+    # ±10% deviation from nominal power
+    nominal = charger_power[charger_type]
+    P = np.random.uniform(0.9 * nominal, 1.1 * nominal)
+
+    # Total electrical loading (kWh)
     return P * service_time
