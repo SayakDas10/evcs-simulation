@@ -80,12 +80,12 @@ def mmck_metrics(arrival_rate, mu, c, K):
         "utilization": utilization
     }
 
-def process_csv(input_csv_path, output_csv_path, mu, c, K, arrival_rate_col="arrival_rate"):
+def process_csv(input_csv_path, output_csv_path, mu, c, K, arrival_rate_col="Arrival Rate"):
     """
     Read input CSV with at least the column 'arrival_rate', compute metrics for each row,
     and write output CSV with the computed metrics.
     """
-    df = pd.read_excel(input_csv_path)
+    df = pd.read_csv(input_csv_path)
     results = []
     for idx, row in df.iterrows():
         lam = float(row[arrival_rate_col])
@@ -102,9 +102,9 @@ def process_csv(input_csv_path, output_csv_path, mu, c, K, arrival_rate_col="arr
 
 if __name__ == "__main__":
     # --- user sets parameters here ---
-    input_csv  = "hourly_arrivals.csv"     # CSV path with arrival_rate column (veh/hr)
-    output_csv = "mmck_output.csv"
-    mu = 6.0      # service rate per charger (veh/hr) → e.g., average service time = 10 minutes
+    input_csv  = "final_results/hourly_arrival_rate.csv"     # CSV path with arrival_rate column (veh/hr)
+    output_csv = "final_results/mmck_output_hourly.csv"
+    mu = 4.0      # service rate per charger (veh/hr) → e.g., average service time = 10 minutes
     c  = 4        # number of chargers (servers)
     K  = 12       # total system capacity (including servers + waiting queue spots)
 
