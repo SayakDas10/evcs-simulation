@@ -2,6 +2,7 @@ import numpy as np
 import math
 from collections import Counter
 from utils import compute_electrical_loading
+import pandas as pd
 
 # --- THEORETICAL FORMULA FUNCTIONS for M/M/c/K ---
 
@@ -230,3 +231,59 @@ def run_simulation_run_new(lam, mu, c, K, q_size, sim_time = 100000, get_stats_d
 
     return stats_dict
 
+
+def run_mmck_hourly(lam_hourly, mu, c, K, sim_minutes=1440):
+    """
+    Cycle-driven M/M/c/K simulator for 24h period with minute-level steps.
+    lam_hourly: array of 24 hourly arrival rates (per minute)
+    mu: service rate per minute
+    c: number of servers
+    K: system capacity
+    sim_minutes: total simulation time (default = 1440 minutes for 24h)
+    """
+    queue = []
+    servers = [0.0] * c
+    num_in_system = 0
+
+    arrivals_record = np.zeros(sim_minutes)
+    queue_len_record = np.zeros(sim_minutes)
+    utilization_record = np.zeros(sim_minutes)
+    
+    current_time = 0.0
+
+    for t in range(sim_minutes):
+        hour_idx = int(t // 60)
+        lam_t = lam_hourly[hour_idx]  # arrivals/minute at current hour
+        
+        # Generate arrivals during this minute (Poisson)
+        arrivals_this_min = np.random.poisson(lam_t)
+        arrivals_record[t] = arrivals_this_min
+        
+        for _ in range(arrivals_this_min):
+            if num_in_system < K:
+                num_in_system += 1
+                free_server = next((i for i, s in enumerate(servers) if s <= current_time), -1)
+                if free_server != -1:
+                    service_time = np.random.exponential(1/mu)
+                    servers[free_server] = current_time + service_time
+                else:
+                    queue.append(current_time)
+        
+        # Check for completed services
+        for i in range(c):
+            if servers[i] <= current_time:
+                if queue:
+                    arrival_from_queue = queue.pop(0)
+                    service_time = np.random.exponential(1/mu)
+                    servers[i] = current_time + service_time
+                else:
+                    servers[i] = current_time
+        
+        # Record stats
+        queue_len_record[t] = len(queue)
+        busy_servers = sum(1 for s in servers if s > current_time)
+        utilization_record[t] = busy_servers / c
+        
+        current_time += 1  # advance 1 minute
+
+    return arrivals_record, queue_len_record, utilization_record
